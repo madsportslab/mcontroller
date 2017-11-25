@@ -11,14 +11,32 @@ import (
 	"github.com/gorilla/mux"
 )
 
+const (
+	BLOBS				= "blobs"
+	MBOARD      = "mboard"
+	REPOSITORY 	= "repository"
+	UPDATE  		= "update"
+	UPDATES   	= "updates"
+	VERSION 		= "version"
+)
+
 var (
-  port     = flag.String("port", "8090", "Host address")
+  port     = flag.String("port", "8900", "Host address")
   conf     = flag.String("conf", "config.json", "Configuration file")
 )
 
 var config map[string]string
 
-func initRepository() {
+func initEndpoints() {
+
+	config[BLOBS]   = fmt.Sprintf("http://%s", config[REPOSITORY])
+	config[UPDATE] 	= fmt.Sprintf(
+		"http://%s/api/upgrades/mboard", config[REPOSITORY])
+  config[VERSION] = fmt.Sprintf("http://%s/api/version", config[MBOARD])
+	
+} // initEndpoints
+
+func initConfig() {
 
 	buf, err := ioutil.ReadFile(*conf)
 
@@ -32,9 +50,11 @@ func initRepository() {
 			log.Fatal(err)
 		}
 
+		initEndpoints()
+
 	}
 
-} // initRepository
+} // initConfig
 
 func initRouter() *mux.Router {
 
@@ -51,9 +71,7 @@ func main() {
 
 	flag.Parse()
 
-	initRepository()
-
-	log.Println(config)
+	initConfig()
 
 	log.Printf("Listening on port %s...", *port)
 
