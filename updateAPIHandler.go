@@ -109,7 +109,7 @@ func installUpdate(file string) bool {
 	
 	glbs.SetNamespace(UPDATES)
 
-	deb := fmt.Sprintf("dpkg -i /home/mboard/bin/%s", file)
+	deb := fmt.Sprintf("dpkg -i %s", file)
 	
 	out, err := exec.Command(deb).Output()
 
