@@ -12,6 +12,7 @@ import (
 )
 
 const (
+        BIN         = "/home/mboard/bin"
 	BLOBS				= "blobs"
 	MBOARD      = "mboard"
 	REPOSITORY 	= "repository"

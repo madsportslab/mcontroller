@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+# add madsportslab user
+
+if ! getent passwd madsportslab >/dev/null; then
+  adduser --system --home /home/madsportslab --shell /bin/bash --group madsportslab
+fi
+
+exit 0
+

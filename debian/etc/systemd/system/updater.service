@@ -1,0 +1,12 @@
+[Unit]
+Description=madsportslab update daemon
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/madsportslab/bin
+ExecStart=/home/madsportslab/bin/updater
+
+[Install]
+WantedBy=multi-user.target
+

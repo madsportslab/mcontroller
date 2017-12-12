@@ -1,0 +1,15 @@
+if [ -d /run/systemd/system ]; then
+  systemctl --system daemon-reload >/dev/null || true
+  if ! deb-systemd-invoke is-enabled updater >/dev/null
+  then
+    deb-systemd-invoke enable updater >/dev/null || true
+  fi
+  deb-systemd-invoke start updater >/dev/null || true
+fi
+
+# fix file permissions
+
+# migrate sqlite3 database
+
+exit 0
+
