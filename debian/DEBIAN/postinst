@@ -1,10 +1,10 @@
 if [ -d /run/systemd/system ]; then
   systemctl --system daemon-reload >/dev/null || true
-  if ! deb-systemd-invoke is-enabled updater >/dev/null
+  if ! deb-systemd-invoke is-enabled mcontroller >/dev/null
   then
-    deb-systemd-invoke enable updater >/dev/null || true
+    deb-systemd-invoke enable mcontroller >/dev/null || true
   fi
-  deb-systemd-invoke start updater >/dev/null || true
+  deb-systemd-invoke start mcontroller >/dev/null || true
 fi
 
 # fix file permissions

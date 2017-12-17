@@ -12,7 +12,7 @@ import (
 )
 
 const (
-        BIN         = "/home/mboard/bin"
+  BIN         = "/home/mboard/bin"
 	BLOBS				= "blobs"
 	MBOARD      = "mboard"
 	REPOSITORY 	= "repository"
@@ -63,6 +63,8 @@ func initRouter() *mux.Router {
 	
 	router.HandleFunc("/api/update",
 		updateAPIHandler)
+	router.HandleFunc("/api/reboot",
+	  rebootAPIHandler)
 
 	return router
 

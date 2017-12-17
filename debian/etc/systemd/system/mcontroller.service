@@ -1,11 +1,11 @@
 [Unit]
-Description=madsportslab update daemon
+Description=madsportslab management daemon
 After=network-online.target
 
 [Service]
 Type=simple
 WorkingDirectory=/home/madsportslab/bin
-ExecStart=/home/madsportslab/bin/updater
+ExecStart=/home/madsportslab/bin/mcontroller
 
 [Install]
 WantedBy=multi-user.target

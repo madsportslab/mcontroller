@@ -2,8 +2,8 @@
 set -e
 
 if [ -d /run/systemd/system ]; then
-  deb-systemd-invoke stop updater >/dev/null || true
-  deb-systemd-invoke disable updater >/dev/null || true
+  deb-systemd-invoke stop mcontroller >/dev/null || true
+  deb-systemd-invoke disable mcontroller >/dev/null || true
 fi
 
 exit 0

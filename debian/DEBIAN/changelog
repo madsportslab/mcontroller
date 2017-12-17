@@ -1,5 +1,5 @@
-updater (0.1) UNRELEASED; urgency=medium
+mcontroller (0.1) UNRELEASED; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
 
- -- hu <hu@ubuntu>  Tue, 25 Jul 2017 23:02:28 -0700
+ -- stephen <stephen@madsportslab.com>  Tue, 25 Jul 2017 23:02:28 -0700
